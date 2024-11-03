@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import MenuLateral from "../../components/MenuLateral";
-import "../../styles/MenuLateral.css";
+import MenuLateral from "../components/MenuLateral";
+import "../styles/MenuLateral.css";
 
 function Home() {
   const location = useLocation();

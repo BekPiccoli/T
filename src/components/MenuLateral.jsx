@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import img from "../assets/TalkLogo.png";
 import "../styles/MenuLateral.css";
@@ -11,6 +10,7 @@ const MenuLateral = () => {
             </div>
             <div className="MenuLateral-Menu">
                 <ul>
+                    <li><Link to="/Perfil">Pefil</Link></li>
                     <li><Link to="/Atividade">Atividades</Link></li>
                     <li><Link to="/Login">Desempenho</Link></li>
                     <li><Link to="/Configuracao">Configurações</Link></li>

@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { api } from "../../services/api.js";
-import img from "../../assets/TalkLogo.png";
+import { api } from "../services/api.js";
+import img from "../assets/TalkLogo.png";
 
 function Cadastro() {
   const nameRef = useRef();
@@ -25,7 +25,7 @@ function Cadastro() {
         " "
       );
       if (passRef.current.value === repassRef.current.value) {
-        await api.post("/Cadastro", {
+        await api.post("/register", {
           name: nameRef.current.value,
           email: emailRef.current.value,
           password: passRef.current.value,

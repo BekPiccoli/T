@@ -1,26 +1,32 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { api } from "../../services/api.js";
-import img from "../../assets/TalkLogo.png";
+import { api } from "../services/api.js";
+import img from "../assets/TalkLogo.png";
 
 function Login() {
   const emailRef = useState();
   const passRef = useState();
   const navigate = useNavigate();
-  const [setUser] = useState(null);
 
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const response = await api.post("/Login", {
+      const response = await api.post("/login", {
         email: emailRef.current.value,
         password: passRef.current.value,
       });
-      setUser(response.data);
 
-      console.log("OQ RETORNOUU: " + response.data);
-      console.log("USERR: " + response.data.userExist);
-      navigate("/Home", { state: { user: response.data.userExist } });
+
+      const user = response.data.userExist;
+      console.log("Usuario:", JSON.stringify(user, null, 2));
+
+      // Verificar se o campo languages está vazio ou ausente
+      if (!user.languages || user.languages.length === 0) {
+        navigate("/Idiomas", { state: { user } }); // Redireciona para uma página de configuração inicial
+      } else {
+        navigate("/Home", { state: { user } });
+      }
+
     } catch (err) {
       alert("Email ou senha incorretos");
       console.error(err);
