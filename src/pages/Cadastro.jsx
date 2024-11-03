@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { api } from "../services/api.js";
 import img from "../assets/TalkLogo.png";
-// teste git chechkout develop
+// teste git chechkout develop2
 function Cadastro() {
   const nameRef = useRef();
   const emailRef = useRef();
