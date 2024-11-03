@@ -2,20 +2,25 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { api } from "../../services/api.js";
 import img from "../../assets/TalkLogo.png";
+
 function Login() {
   const emailRef = useState();
   const passRef = useState();
-  const navegate = useNavigate();
+  const navigate = useNavigate();
+  const [setUser] = useState(null);
+
   async function handleSubmit(event) {
+    event.preventDefault();
     try {
-      event.preventDefault();
-      console.log(emailRef.current.value);
-      console.log(passRef.current.value);
-      await api.post("/Login", {
+      const response = await api.post("/Login", {
         email: emailRef.current.value,
         password: passRef.current.value,
       });
-      navegate("/Home");
+      setUser(response.data);
+
+      console.log("OQ RETORNOUU: " + response.data);
+      console.log("USERR: " + response.data.userExist);
+      navigate("/Home", { state: { user: response.data.userExist } });
     } catch (err) {
       alert("Email ou senha incorretos");
       console.error(err);
