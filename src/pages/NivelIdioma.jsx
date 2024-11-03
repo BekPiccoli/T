@@ -7,6 +7,7 @@ function Nivel() {
   const { selectedLanguage, user } = location.state || {};
   const [selectedLevel, setSelectedLevel] = useState("");
 
+  //isso é um teste
   // Lista de níveis com o formato correto para o enum do backend
   const levels = [
     { label: "Iniciante", value: "INICIANTE" },
