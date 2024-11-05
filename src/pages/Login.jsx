@@ -16,12 +16,11 @@ function Login() {
         password: passRef.current.value,
       });
 
-
       const user = response.data.userExist;
       console.log("Usuario:", JSON.stringify(user, null, 2));
 
       // Verificar se o campo languages está vazio ou ausente
-      if (!user.languages || user.languages.length === 0) {
+      if (!user.primaryLanguage || user.primaryLanguage.length === 0) {
         navigate("/Idiomas", { state: { user } }); // Redireciona para uma página de configuração inicial
       } else {
         navigate("/Home", { state: { user } });

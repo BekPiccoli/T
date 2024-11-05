@@ -24,13 +24,20 @@ function Motivo() {
     try {
       // Salvar idioma, nível e propósito via API
       await api.post(`/users/${user.id}/languages`, {
-        language: selectedLanguage,
+        primaryLanguage: selectedLanguage,
         level: selectedLevel,
         purpose: purpose,
       });
 
+      const updatedUser = {
+        ...user,
+        primaryLanguage: selectedLanguage,
+        level: selectedLevel,
+        purpose: purpose,
+      };
+
       // Redirecionar para a página principal
-      navigate("/Home", { state: { user } });
+      navigate("/Home", { state: { updatedUser } });
     } catch (error) {
       console.error("Erro ao salvar idioma:", error);
       alert("Ocorreu um erro. Tente novamente.");
