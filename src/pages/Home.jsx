@@ -1,31 +1,31 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import MenuLateral from "../components/MenuLateral";
-import "../styles/MenuLateral.css";
+import { api } from "../services/api";
+import { useUser } from "../auth/authContext";
+import "../styles/Home.css";
 
 function Home() {
-  const location = useLocation();
-  const user = location.state?.user;
+  const { user, setUser } = useUser();
 
   useEffect(() => {
-    if (user) {
-      console.log("Usuário atualizado:", user);
-    } else {
-      console.log("Nenhum usuário encontrado.");
-      // Redirecione ou busque o usuário do banco de dados, se necessário
+    if (user && !user.primaryLanguage) {
+      const fetchUser = async () => {
+        try {
+          const response = await api.get(`/users/${user.id}`);
+          setUser(response.data);
+        } catch (error) {
+          console.error("Erro ao carregar o usuário:", error);
+        }
+      };
+      fetchUser();
     }
-  }, [user]);
+  }, [user, setUser]);
 
   return (
-    <div className="MainLayout">
-      <MenuLateral />
-      <div className="Content">
-        <h1>Bem-vindo, {user ? user.name : "Usuário"}</h1>
-        <p>Aqui está o conteúdo principal do seu aplicativo.</p>
-        <p>Idioma: {user?.primaryLanguage}</p>
-        <p>Nível: {user?.level}</p>
-        <p>Motivo: {user?.purpose}</p>
-      </div>
+    <div className="home-container">
+      <h1 className="home-title">
+        Bem-vindo, {user ? user.name : "Usuário"}!
+        <h2>Pronto para aprimorar seu aprendizado de idiomas?</h2>
+      </h1>
     </div>
   );
 }

@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Idiomas from "./pages/Idiomas";
 import Nivel from "./pages/NivelIdioma";
 import Motivo from "./pages/MotivoIdioma";
+import GrupoAtividade from "./pages/GrupoAtividade";
+import MainLayout from "./layouts/LayoutMenuLateral";
 
 function App() {
   return (
@@ -13,11 +15,27 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Cadastro" element={<Cadastro />} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/Idiomas" element={<Idiomas />} />
           <Route path="/Nivel" element={<Nivel />} />
           <Route path="/Motivo" element={<Motivo />} />
-        </Routes>
+          <Route path="/Idiomas" element={<Idiomas />} />
+        {/* Rotas com a Sidebar via MainLayout */}
+        <Route
+          path="/Home"
+          element={
+            <MainLayout>
+              <Home />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/GrupoAtividade"
+          element={
+            <MainLayout>
+              <GrupoAtividade />
+            </MainLayout>
+          }
+        />
+      </Routes>
       </BrowserRouter>
     </>
   );

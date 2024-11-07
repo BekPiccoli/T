@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
-import img from "../assets/TalkLogo.png";
+import img from "../assets/TalkLogoAlt.png";
 import "../styles/MenuLateral.css";
 
 const MenuLateral = () => {
     return (
         <div className="MenuLateral">
             <div className="MenuLateral-Logo">
-                <img src={img} alt="Logo do App" />
+                <Link to="/Home">
+                    <img src={img} alt="Logo do App" />
+                </Link>
             </div>
             <div className="MenuLateral-Menu">
                 <ul>
-                    <li><Link to="/Perfil">Pefil</Link></li>
-                    <li><Link to="/Atividade">Atividades</Link></li>
+                    <li><Link to="/Perfil">Perfil</Link></li>
+                    <li><Link to="/GrupoAtividade">Atividades</Link></li>
                     <li><Link to="/Login">Desempenho</Link></li>
                     <li><Link to="/Configuracao">Configurações</Link></li>
                     <li><Link to="/Sobre">Sobre</Link></li>

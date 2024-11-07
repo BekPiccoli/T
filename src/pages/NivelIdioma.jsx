@@ -1,10 +1,12 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useUser } from "../auth/authContext.jsx";
 
 function Nivel() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { selectedLanguage, user } = location.state || {};
+  const { user } = useUser(); 
+  const { selectedLanguage} = location.state || {};
   const [selectedLevel, setSelectedLevel] = useState("");
 
   //isso é um teste

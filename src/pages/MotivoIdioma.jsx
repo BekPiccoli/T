@@ -1,26 +1,18 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { api } from "../services/api.js";
+import { useUser } from "../auth/authContext.jsx";
 
 function Motivo() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { selectedLanguage, selectedLevel, user } = location.state || {};
+  const { user } = useUser();
+  const { selectedLanguage, selectedLevel} = location.state || {};
   const [purpose, setPurpose] = useState("");
 
   const purposes = ["Viagem", "Trabalho", "Interesse Pessoal", "Estudos"];
 
   async function handleContinue() {
-    if (!purpose) {
-        alert("Por favor, selecione o motivo.");
-        return;
-      }
-    
-      console.log("Usuário Motivo", user);
-      if (!user) {
-        alert("Erro ao recuperar informações do usuário.");
-        return;
-      }
     try {
       // Salvar idioma, nível e propósito via API
       await api.post(`/users/${user.id}/languages`, {
@@ -29,15 +21,8 @@ function Motivo() {
         purpose: purpose,
       });
 
-      const updatedUser = {
-        ...user,
-        primaryLanguage: selectedLanguage,
-        level: selectedLevel,
-        purpose: purpose,
-      };
-
       // Redirecionar para a página principal
-      navigate("/Home", { state: { updatedUser } });
+      navigate("/Home", { state: {  user } });
     } catch (error) {
       console.error("Erro ao salvar idioma:", error);
       alert("Ocorreu um erro. Tente novamente.");
