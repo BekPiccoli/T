@@ -1,9 +1,10 @@
 .MainLayout {
-    display: flex;
+  display: flex;
+  height: 100vh;
 }
 
 .Content {
-    margin-left: 250px;
-    padding: 20px;
-    width: 100%;
+  margin-left: 250px;
+  /* padding: 20px; */
+  width: 100%;
 }

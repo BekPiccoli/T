@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { api } from "../services/api";
 import { useUser } from "../auth/authContext";
 import "../styles/Home.css";
+import Perfil from "./Perfil";
 
 function Home() {
   const { user, setUser } = useUser();
@@ -21,12 +22,14 @@ function Home() {
   }, [user, setUser]);
 
   return (
-    <div className="home-container">
-      <h1 className="home-title">
-        Bem-vindo, {user ? user.name : "Usuário"}!
-        <h2>Pronto para aprimorar seu aprendizado de idiomas?</h2>
-      </h1>
-    </div>
+    <>
+      <div className="home-container">
+        <h1 className="home-title">
+          Bem-vindo, {user ? user.name : "Usuário"}!
+          <h2>Pronto para aprimorar seu aprendizado de idiomas?</h2>
+        </h1>
+      </div>
+    </>
   );
 }
 

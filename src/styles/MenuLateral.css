@@ -77,17 +77,21 @@
 } */
 
 .MenuLateral {
-    width: 250px;
-    height: 100vh;
-    background: linear-gradient(to bottom, #2728c0, #003366); /* Gradiente do topo ao fundo */
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: width 0.3s ease-in-out;
-    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra lateral */
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    #2728c0,
+    #003366
+  ); /* Gradiente do topo ao fundo */
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: width 0.3s ease-in-out;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra lateral */
 }
 
 /* .MenuLateral-Logo {
@@ -106,69 +110,69 @@
 } */
 
 .MenuLateral-Logo {
-    width: 100%; 
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding: 10px 0 40px 0; 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 40px 0;
 }
 
 .MenuLateral-Logo img {
-    width: 100%;
-    height: auto;
-    padding: 5px;
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  transition: transform 0.3s ease;
 }
 
 .MenuLateral-Logo img:hover {
-    transform: scale(1.05); /* Aumenta levemente a logo ao passar o mouse */
+  transform: scale(1.05); /* Aumenta levemente a logo ao passar o mouse */
 }
 
 .MenuLateral-Menu {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .MenuLateral-Menu ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
+  list-style: none;
+  padding: 0;
+  width: 100%;
 }
 
 .MenuLateral-Menu ul li {
-    width: 100%;
+  width: 100%;
 }
 
 .MenuLateral-Menu ul li a {
-    display: block;
-    padding: 15px 20px;
-    color: #ecf0f1;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s ease;
+  display: block;
+  padding: 15px 20px;
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
 .MenuLateral-Menu ul li a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #f1c40f; /* Dourado claro para destaque */
-    transform: translateY(-3px); /* Elevação leve */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona sombra */
-    border-radius: 8px; /* Arredonda as bordas */
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1c40f; /* Dourado claro para destaque */
+  transform: translateY(-3px); /* Elevação leve */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona sombra */
+  border-radius: 8px; /* Arredonda as bordas */
 }
 
 .MenuLateral-Menu ul li a.active {
-    background-color: #1abc9c; /* Verde para estado ativo */
-    color: #2c3e50; /* Cor do texto no link ativo */
+  background-color: #1abc9c; /* Verde para estado ativo */
+  color: #2c3e50; /* Cor do texto no link ativo */
 }
 
 .MenuLateral-Footer {
-    margin-top: auto;
-    padding: 20px;
-    color: #ecf0f1;
-    font-size: 14px;
-    text-align: center;
+  margin-top: auto;
+  padding: 20px;
+  color: #ecf0f1;
+  font-size: 14px;
+  text-align: center;
 }

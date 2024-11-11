@@ -7,6 +7,10 @@ import Nivel from "./pages/NivelIdioma";
 import Motivo from "./pages/MotivoIdioma";
 import GrupoAtividade from "./pages/GrupoAtividade";
 import MainLayout from "./layouts/LayoutMenuLateral";
+import Perfil from "./pages/Perfil";
+import Desempenho from "./pages/Desempenho";
+import Configuracao from "./pages/Configuracao";
+import Sobre from "./pages/Sobre";
 
 function App() {
   return (
@@ -18,24 +22,55 @@ function App() {
           <Route path="/Nivel" element={<Nivel />} />
           <Route path="/Motivo" element={<Motivo />} />
           <Route path="/Idiomas" element={<Idiomas />} />
-        {/* Rotas com a Sidebar via MainLayout */}
-        <Route
-          path="/Home"
-          element={
-            <MainLayout>
-              <Home />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/GrupoAtividade"
-          element={
-            <MainLayout>
-              <GrupoAtividade />
-            </MainLayout>
-          }
-        />
-      </Routes>
+          <Route
+            path="/Desempenho"
+            element={
+              <MainLayout>
+                <Desempenho />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/Configuracao"
+            element={
+              <MainLayout>
+                <Configuracao />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/Sobre"
+            element={
+              <MainLayout>
+                <Sobre />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/Perfil"
+            element={
+              <MainLayout>
+                <Perfil />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/Home"
+            element={
+              <MainLayout>
+                <Home />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/GrupoAtividade"
+            element={
+              <MainLayout>
+                <GrupoAtividade />
+              </MainLayout>
+            }
+          />
+        </Routes>
       </BrowserRouter>
     </>
   );
