@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useUser } from "../auth/authContext";
 import { api } from "../services/api";
+import Swal from "sweetalert2";
 function Perfil() {
   const [image, setImage] = useState();
   const { user } = useUser();
@@ -23,19 +24,20 @@ function Perfil() {
     const file = event.target.files[0];
     if (file) {
       setImage(file);
-      photoSubmit(file);
+      photoSubmit();
     }
   }
   return (
     <>
       <div className="flex flex-col items-center w-full h-full bg-sky-200">
         <div className="w-11/12 h-72 ml-2 mr-2 mb-2  border-gray-300 bg-[url('./src/assets/planodefundo.jpg')] shadow-xl rounded-b-2xl flex flex-col justify-center items-center">
-          <form onSubmit={photoSubmit}>
+          <form>
             <label
               title="Alterar foto de perfil"
               className="cursor-pointer w-48 h-44 bg-white border-2 border-black rounded-xl flex justify-center items-center hover:bg-gray-200"
             >
               <input
+                id="photo"
                 type="file"
                 onChange={handleImageChange}
                 className="hidden"
@@ -47,6 +49,7 @@ function Perfil() {
               />
             </label>
           </form>
+
           <h1 className="text-white">{user ? user.name : "Usuário"}</h1>
         </div>
         <div className="mt-3 w-11/12 h-3/4   border-gray-300 bg-white shadow-xl rounded-t-2xl flex items-center justify-center ">
@@ -59,7 +62,7 @@ function Perfil() {
                   <input
                     type="text"
                     placeholder="Digite sua senha"
-                    id="password"
+                    id="name"
                     className="px-5 py-3 border border-gray-300 rounded-lg w-11/12 shadow-sm focus:outline-none focus:border-blue-600 text-lg"
                     value={user ? user.email : "User name"}
                   />
@@ -74,7 +77,7 @@ function Perfil() {
                   <input
                     type="text"
                     placeholder="Digite sua senha"
-                    id="password"
+                    id="email"
                     className="px-5 py-3 border border-gray-300 rounded-lg w-11/12 shadow-sm focus:outline-none focus:border-blue-600 text-lg"
                     value={user ? user.email : "User email"}
                   />
