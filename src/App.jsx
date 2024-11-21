@@ -11,6 +11,9 @@ import Perfil from "./pages/Perfil";
 import Desempenho from "./pages/Desempenho";
 import Configuracao from "./pages/Configuracao";
 import Sobre from "./pages/Sobre";
+import Exercicios from "./pages/Exercicios";
+import Pergunta from "./pages/Pergunta";
+
 
 function App() {
   return (
@@ -68,6 +71,22 @@ function App() {
               <MainLayout>
                 <GrupoAtividade />
               </MainLayout>
+            }
+          />
+          <Route
+            path="/exercises/:groupId"
+            element={
+              <MainLayout>
+                <Exercicios />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/exercicio/:exerciseId"
+            element={
+            <MainLayout>
+            <Pergunta />
+            </MainLayout>
             }
           />
         </Routes>

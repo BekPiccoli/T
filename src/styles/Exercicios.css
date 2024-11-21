@@ -1,0 +1,85 @@
+.exercises-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    color: #2728c0;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .exercises-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .exercise-card {
+    background: linear-gradient(to right, #ffffff, #f7f9fc);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .exercise-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .exercise-card h2 {
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 15px;
+  }
+  
+  .start-button {
+    background: linear-gradient(to right, #2728c0, #4f5bd5);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 5px 10px rgba(39, 40, 192, 0.4);
+  }
+  
+  .start-button:hover {
+    background: linear-gradient(to right, #1e227a, #363a9c);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(39, 40, 192, 0.6);
+  }
+  
+  .start-button:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(39, 40, 192, 0.4);
+  }
+  
+
+  .status {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .status.correto {
+    color: green;
+  }
+  
+  .status.incorreto {
+    color: red;
+  }
+  
+  .status.pendente {
+    color: gray;
+  }
+  

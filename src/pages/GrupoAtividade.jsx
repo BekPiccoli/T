@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useUser } from "../auth/authContext.jsx";
 import { api } from "../services/api.js";
 import "../styles/GrupoAtividade.css";
+import { useNavigate } from "react-router-dom";
 
 const GrupoAtividade = () => {
   const [exerciseGroups, setExerciseGroups] = useState([]);
   const { user } = useUser();
+  const navigate = useNavigate();
   const selectedLanguage = user?.primaryLanguage || "defaultLanguage";
 
   // Definindo cores aleatórias para o cabeçalho
@@ -36,6 +38,13 @@ const GrupoAtividade = () => {
     fetchExerciseGroups();
   }, [selectedLanguage]);
 
+  const handleViewExercises = (groupId) => {
+    console.log("Group ID recebido:", groupId);
+
+    navigate(`/exercises/${groupId}`);
+  };
+
+
   return (
     <div className="exercise-groups-container">
       <h1 className="title">Grupos de Exercícios - {selectedLanguage}</h1>
@@ -49,7 +58,12 @@ const GrupoAtividade = () => {
             <div className="exercise-card-content">
               <h2>{group.title}</h2>
               <p>{group.description}</p>
-              <button className="view-button">Ver Atividades</button>
+              <button
+                className="view-button"
+                onClick={() => handleViewExercises(group.id)}
+              >
+                Ver Atividades
+              </button> 
             </div>
           </div>
         ))}
@@ -59,3 +73,4 @@ const GrupoAtividade = () => {
 };
 
 export default GrupoAtividade;
+

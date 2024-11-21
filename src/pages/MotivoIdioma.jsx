@@ -6,7 +6,7 @@ import { useUser } from "../auth/authContext.jsx";
 function Motivo() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { user } = useUser();
+  const { user, setUser } = useUser();
   const { selectedLanguage, selectedLevel} = location.state || {};
   const [purpose, setPurpose] = useState("");
 
@@ -20,6 +20,17 @@ function Motivo() {
         level: selectedLevel,
         purpose: purpose,
       });
+
+      const updatedUser = { 
+        ...user, 
+        primaryLanguage: selectedLanguage 
+        , level: selectedLevel, 
+        purpose: purpose
+      };
+
+      console.log("Usuario const atualizado: " + updatedUser);
+      setUser(updatedUser)
+      console.log("Usuario atualizado: " + user);
 
       // Redirecionar para a página principal
       navigate("/Home", { state: {  user } });

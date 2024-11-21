@@ -1,0 +1,115 @@
+.perfil-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+    /* background: linear-gradient(to right, #2728c0, #4f5bd5); */
+    font-family: "Nunito", sans-serif;
+  }
+  
+  .perfil-header {
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+  }
+  
+  .perfil-avatar {
+    display: block;
+    margin: 0 auto 15px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #4f5bd5;
+    cursor: pointer;
+  }
+  
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .perfil-name {
+    font-size: 1.8rem;
+    color: #2728c0;
+    margin-bottom: 5px;
+  }
+  
+  .perfil-email {
+    font-size: 1rem;
+    color: #555555;
+  }
+  
+  .perfil-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .perfil-section-title {
+    font-size: 1.5rem;
+    color: #2728c0;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #4f5bd5;
+    padding-bottom: 10px;
+  }
+  
+  .perfil-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 5px;
+  }
+  
+  .form-input {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #4f5bd5;
+    box-shadow: 0px 0px 5px #4f5bd5;
+  }
+  
+  .form-button {
+    background-color: #2728c0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: flex-end;
+    transition: background-color 0.3s;
+  }
+  
+  .form-button:hover {
+    background-color: #4f5bd5;
+  }

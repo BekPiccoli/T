@@ -1,80 +1,3 @@
-/* .MenuLateral {
-    width: 250px;
-    height: 100vh;
-    background-color: #003366;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: width 0.3s;
-}
-
-.MenuLateral-Logo {
-    width: 100%; 
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding: 10px 0 40px 0; 
-}
-
-.MenuLateral-Logo img {
-    width: 100%;
-    height: auto;
-    padding: 5px;
-}
-
-.MenuLateral-Menu {
-    margin-top: 30px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.MenuLateral-Menu ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-}
-
-.MenuLateral-Menu ul li {
-    width: 100%;
-    align-items: teste;
-}
-
-.MenuLateral-Menu ul li a {
-    display: block;
-    padding: 15px 20px;
-    color: #ecf0f1;
-    text-decoration: none;
-    font-size: 18px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.MenuLateral-Menu ul li a:hover {
-    background-color: #34495e;
-    color: #1abc9c; 
-    transform: translateY(-3px); 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
-    border-radius: 5px; 
-    transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s; 
-}
-
-.MenuLateral-Menu ul li a.active {
-    background-color: #1abc9c;
-    color: #2c3e50; 
-}
-
-.MenuLateral-Footer {
-    margin-top: auto;
-    padding: 20px;
-    color: #ecf0f1;
-    font-size: 14px;
-    text-align: center;
-} */
 
 .MenuLateral {
   width: 250px;
@@ -93,21 +16,6 @@
   transition: width 0.3s ease-in-out;
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra lateral */
 }
-
-/* .MenuLateral-Logo {
-    width: 80%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.MenuLateral-Logo img {
-    width: 80%;
-    height: auto;
-    padding: 10px;
-    transition: transform 0.3s ease;
-} */
 
 .MenuLateral-Logo {
   width: 100%;

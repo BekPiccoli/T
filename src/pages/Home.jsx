@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { api } from "../services/api";
 import { useUser } from "../auth/authContext";
 import "../styles/Home.css";
-import Perfil from "./Perfil";
 
 function Home() {
   const { user, setUser } = useUser();
