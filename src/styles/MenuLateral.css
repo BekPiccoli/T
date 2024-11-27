@@ -6,7 +6,7 @@
     to bottom,
     #2728c0,
     #003366
-  ); /* Gradiente do topo ao fundo */
+  ); 
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +14,7 @@
   flex-direction: column;
   align-items: center;
   transition: width 0.3s ease-in-out;
-  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra lateral */
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .MenuLateral-Logo {
@@ -33,7 +33,7 @@
 }
 
 .MenuLateral-Logo img:hover {
-  transform: scale(1.05); /* Aumenta levemente a logo ao passar o mouse */
+  transform: scale(1.05); 
 }
 
 .MenuLateral-Menu {

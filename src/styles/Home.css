@@ -1,33 +1,137 @@
-/* Container centralizado */
+/* Container principal */
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
-  padding-top: 15vh; /* Ajuste de espaço para afastar do topo */
+  padding: 20px;
+  padding-top: 8vh;
   font-family: "Nunito", sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  gap: 3rem; /* Maior espaçamento entre os componentes principais */
 }
 
-/* Estilo do título */
-.home-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #ffffff; /* Cor branca para contraste com o gradiente */
+/* Cabeçalho */
+.home-header {
   text-align: center;
-  background: linear-gradient(to right, #2728c0, #003366); /* Cor gradiente */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
 }
 
-/* Estilo do subtítulo */
-.home-title h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #ffffff;
+.home-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
   background: linear-gradient(to right, #2728c0, #003366);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-top: 0.5rem;
+}
+
+.home-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #555555;
+}
+
+/* Card de progresso */
+.progress-card {
+  width: 90%;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  border: 2px solid #2728c0;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.progress-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.progress-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.progress-value {
+  color: #2728c0;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+/* Barra de progresso */
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0; /* Fundo cinza claro */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.progress-bar:hover {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background: linear-gradient(to right, #4fa3f7, #0078d4); /* Azul degradê */
+  transition: width 0.4s ease-in-out;
+  border-radius: 10px 0 0 10px;
+}
+
+/* Seção de ações */
+.action-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem; /* Maior separação entre os cards */
+  justify-content: center;
+  width: 100%;
+}
+
+/* Estilo dos cards */
+.action-card {
+  background-color: #f9f9f9;
+  border: 2px solid #2728c0;
+  border-radius: 15px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Título do card */
+.action-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2728c0;
+  margin-bottom: 0.5rem;
+}
+
+/* Descrição do card */
+.action-card-description {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+}
+
+/* Destaque no texto */
+.action-highlight {
+  color: #003366;
+  font-weight: bold;
 }

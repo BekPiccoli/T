@@ -10,7 +10,6 @@ const GrupoAtividade = () => {
   const navigate = useNavigate();
   const selectedLanguage = user?.primaryLanguage || "defaultLanguage";
 
-  // Definindo cores aleatórias para o cabeçalho
   const gradientColors = [
     "linear-gradient(to right, #2728c0, #4f5bd5)",
     "linear-gradient(to right, #ff7e5f, #feb47b)",
@@ -53,7 +52,7 @@ const GrupoAtividade = () => {
           <div key={group.id} className="exercise-card">
             <div
               className="exercise-card-header"
-              style={{ background: getRandomGradient() }} // Aplicando o gradiente aleatório
+              style={{ background: getRandomGradient() }} 
             ></div>
             <div className="exercise-card-content">
               <h2>{group.title}</h2>

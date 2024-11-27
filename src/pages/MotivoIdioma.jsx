@@ -14,7 +14,6 @@ function Motivo() {
 
   async function handleContinue() {
     try {
-      // Salvar idioma, nível e propósito via API
       await api.post(`/users/${user.id}/languages`, {
         primaryLanguage: selectedLanguage,
         level: selectedLevel,
@@ -32,7 +31,6 @@ function Motivo() {
       setUser(updatedUser)
       console.log("Usuario atualizado: " + user);
 
-      // Redirecionar para a página principal
       navigate("/Home", { state: {  user } });
     } catch (error) {
       console.error("Erro ao salvar idioma:", error);

@@ -9,8 +9,6 @@ function Nivel() {
   const { selectedLanguage} = location.state || {};
   const [selectedLevel, setSelectedLevel] = useState("");
 
-  //isso é um teste
-  // Lista de níveis com o formato correto para o enum do backend
   const levels = [
     { label: "Iniciante", value: "INICIANTE" },
     { label: "Intermediário", value: "INTERMEDIARIO" },
@@ -18,7 +16,7 @@ function Nivel() {
   ];
 
   function handleLevelSelect(levelValue) {
-    setSelectedLevel(levelValue); // Armazena apenas o valor, não o objeto inteiro
+    setSelectedLevel(levelValue); 
   }
 
   function handleContinue() {

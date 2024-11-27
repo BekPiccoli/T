@@ -22,9 +22,6 @@ const MenuLateral = () => {
             <Link to="/Desempenho">Desempenho</Link>
           </li>
           <li>
-            <Link to="/Configuracao">Configurações</Link>
-          </li>
-          <li>
             <Link to="/Sobre">Sobre</Link>
           </li>
         </ul>

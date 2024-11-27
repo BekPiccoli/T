@@ -11,15 +11,12 @@ const Exercicios = () => {
   const [progress, setProgress] = useState({});
   const navigate = useNavigate();
 
-  // Buscar exercícios do grupo e progresso do usuário
   useEffect(() => {
     const fetchExercisesAndProgress = async () => {
       try {
-        // Buscar exercícios do grupo
         const exercisesResponse = await api.get(`/exercises/${groupId}`);
         setExercises(exercisesResponse.data.exercises || []);
 
-        // Buscar progresso do usuário
         console.log(groupId);
         const progressResponse = await api.get(`/progress/${groupId}/${user.id}`);
         console.log(progressResponse.data);
@@ -38,7 +35,6 @@ const Exercicios = () => {
     fetchExercisesAndProgress();
   }, [groupId]);
 
-  // Função para obter o status do exercício
   const getExerciseStatus = (exerciseId) => {
     const exerciseProgress = progress[exerciseId];
     if (!exerciseProgress) return "pendente";

@@ -1,55 +1,118 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Swal from "sweetalert2"; 
 import { useUser } from "../auth/authContext";
 import { api } from "../services/api";
 import "../styles/Perfil.css";
 
 function Perfil() {
-  const [image, setImage] = useState();
-  const { user } = useUser();
+  const { user, setUser } = useUser();
+  const [image, setImage] = useState(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-  async function photoSubmit(event) {
-    event.preventDefault();
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        name: user.name || "",
+        email: user.email || "",
+        password: "",
+      });
+    }
+  }, [user]);
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) setImage(file);
+  };
+
+  const handlePhotoSubmit = async (e) => {
+    e.preventDefault();
+    if (!image) return;
+
     try {
       const formData = new FormData();
       formData.append("image", image);
-      const headers = {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      };
-      await api.post("/upload-image", formData, headers);
-    } catch (err) {
-      console.error(err);
-    }
-  }
+      const headers = { headers: { "Content-Type": "multipart/form-data" } };
 
-  function handleImageChange(event) {
-    const file = event.target.files[0];
-    if (file) {
-      setImage(file);
-      photoSubmit();
+      await api.post("/upload-image", formData, headers);
+
+      Swal.fire({
+        icon: "success",
+        title: "Sucesso!",
+        text: "Foto de perfil atualizada com sucesso!",
+        confirmButtonColor: "#2728c0",
+      });
+    } catch (err) {
+      console.error("Erro ao atualizar a foto:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Erro",
+        text: "Erro ao atualizar a foto de perfil.",
+        confirmButtonColor: "#e74c3c",
+      });
     }
-  }
+  };
+
+  const handleUpdate = async () => {
+    try {
+      const response = await api.patch(`/updateuser/${user.id}`, formData);
+
+      setUser({ ...user, ...response.data });
+
+      Swal.fire({
+        icon: "success",
+        title: "Sucesso!",
+        text: "Informações atualizadas com sucesso!",
+        confirmButtonColor: "#2728c0",
+      });
+    } catch (err) {
+      console.error("Erro ao atualizar informações:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Erro",
+        text: "Erro ao atualizar informações.",
+        confirmButtonColor: "#e74c3c",
+      });
+    }
+  };
 
   return (
     <div className="perfil-container">
       <div className="perfil-header">
-        <label className="perfil-avatar">
-          <input
-            id="photo"
-            type="file"
-            onChange={handleImageChange}
-            className="hidden"
-          />
-          <img
-            src={image ? URL.createObjectURL(image) : "https://via.placeholder.com/150"}
-            alt="Foto de perfil"
-            className="avatar-img"
-          />
-        </label>
-        <h1 className="perfil-name">{user ? user.name : "Usuário"}</h1>
-        <p className="perfil-email">{user ? user.email : "Email do Usuário"}</p>
+        <form onSubmit={handlePhotoSubmit} className="perfil-avatar-form">
+          <label className="perfil-avatar">
+            <input
+              id="photo"
+              type="file"
+              onChange={handleImageChange}
+              className="hidden"
+            />
+            <img
+              src={
+                image
+                  ? URL.createObjectURL(image)
+                  : user?.avatarUrl || "https://via.placeholder.com/150"
+              }
+              alt="Foto de perfil"
+              className="avatar-img"
+            />
+          </label>
+          <button type="submit" className="upload-button">
+            Salvar Foto
+          </button>
+        </form>
+        <h1 className="perfil-name">{user?.name || "Usuário"}</h1>
+        <p className="perfil-email">{user?.email || "Email do Usuário"}</p>
       </div>
+
       <div className="perfil-content">
         <h2 className="perfil-section-title">Editar Perfil</h2>
         <div className="perfil-form">
@@ -59,10 +122,10 @@ function Perfil() {
               type="text"
               id="name"
               className="form-input"
+              value={formData.name}
+              onChange={handleInputChange}
               placeholder="Digite seu nome"
-              defaultValue={user ? user.name : ""}
             />
-            <button className="form-button">Alterar</button>
           </div>
           <div className="form-group">
             <label htmlFor="email">Email:</label>
@@ -70,10 +133,10 @@ function Perfil() {
               type="email"
               id="email"
               className="form-input"
+              value={formData.email}
+              onChange={handleInputChange}
               placeholder="Digite seu email"
-              defaultValue={user ? user.email : ""}
             />
-            <button className="form-button">Alterar</button>
           </div>
           <div className="form-group">
             <label htmlFor="password">Senha:</label>
@@ -81,11 +144,15 @@ function Perfil() {
               type="password"
               id="password"
               className="form-input"
+              value={formData.password}
+              onChange={handleInputChange}
               placeholder="Digite sua senha"
             />
-            <button className="form-button">Alterar</button>
           </div>
         </div>
+        <button className="update-button" onClick={handleUpdate}>
+          Atualizar
+        </button>
       </div>
     </div>
   );
