@@ -9,7 +9,6 @@ import GrupoAtividade from "./pages/GrupoAtividade";
 import MainLayout from "./layouts/LayoutMenuLateral";
 import Perfil from "./pages/Perfil";
 import Desempenho from "./pages/Desempenho";
-import Configuracao from "./pages/Configuracao";
 import Sobre from "./pages/Sobre";
 import Exercicios from "./pages/Exercicios";
 import Pergunta from "./pages/Pergunta";
@@ -30,14 +29,6 @@ function App() {
             element={
               <MainLayout>
                 <Desempenho />
-              </MainLayout>
-            }
-          />
-          <Route
-            path="/Configuracao"
-            element={
-              <MainLayout>
-                <Configuracao />
               </MainLayout>
             }
           />

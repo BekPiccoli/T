@@ -83,6 +83,7 @@
 .progress-bar-inner {
   height: 100%;
   background: linear-gradient(to right, #4fa3f7, #0078d4); /* Azul degradê */
+  background: linear-gradient(90deg, #2728c0, #003366);
   transition: width 0.4s ease-in-out;
   border-radius: 10px 0 0 10px;
 }
