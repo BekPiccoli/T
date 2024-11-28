@@ -108,7 +108,7 @@ function Home() {
       <h3 className="progress-text">
         Você completou <span className="progress-value">{progress}%</span> do seu aprendizado!
       </h3>
-      <div className="progress-bar">
+      <div className="progress-bar-home">
         <div
           className="progress-bar-inner"
           style={{ width: `${progress}%` }}
